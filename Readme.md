@@ -1,7 +1,7 @@
 # Личный проект «Кекстаграм»
 
 * Студент: [Татьяна Карпова](https://up.htmlacademy.ru/javascript/31/user/2335651).
-* Наставник: [Артём Новоселов] (https://htmlacademy.ru/profile/id1195129).
+* Наставник: [Артём Новоселов](https://htmlacademy.ru/profile/id1195129).
 
 ---
 
