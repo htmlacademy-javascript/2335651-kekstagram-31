@@ -1,4 +1,5 @@
 //Функция для проверки длины строки.
+// eslint-disable-next-line no-unused-vars
 function stringLength (string, maxLength) {
   if (string.length <= maxLength) {
     return true;
@@ -7,14 +8,21 @@ function stringLength (string, maxLength) {
   return false;
 }
 
-// Строка короче 20 символов
-// eslint-disable-next-line no-console
-console.log(stringLength('проверяемая строка', 20));
-// Длина строки ровно 18 символов
-// eslint-disable-next-line no-console
-console.log(stringLength('проверяемая строка', 18));
-// Строка длиннее 10 символов
-// eslint-disable-next-line no-console
-console.log(stringLength('проверяемая строка', 10));
+//Функция для проверки, является ли строка палиндромом
+// eslint-disable-next-line no-unused-vars
+function stringPalindrome (string) {
+  string = string.replaceAll(' ', '').toLowerCase();
+  let newString = '';
 
+  for (let i = string.length - 1; i >= 0; i--){
+    // eslint-disable-next-line no-unused-vars
+    newString += string[i];
+  }
+
+  if (newString === string) {
+    return true;
+  }
+
+  return false;
+}
 
