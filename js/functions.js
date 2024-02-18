@@ -26,3 +26,18 @@ function stringPalindrome (string) {
   return false;
 }
 
+//Функция возарата числа
+// eslint-disable-next-line no-unused-vars
+function returnNumber (string) {
+  let newNumberString = '';
+  for (let i = 0; i <= string.length; i++) {
+    const number = parseInt(string[i], 10);
+
+    if (!isNaN(number)) {
+      // eslint-disable-next-line no-unused-vars
+      newNumberString += number;
+    }
+  }
+  // eslint-disable-next-line no-undef
+  return newNumberString;
+}
