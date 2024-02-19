@@ -30,6 +30,7 @@ function stringPalindrome (string) {
 // eslint-disable-next-line no-unused-vars
 function returnNumber (string) {
   let newNumberString = '';
+  string = string.toString();
   for (let i = 0; i <= string.length; i++) {
     const number = parseInt(string[i], 10);
 
@@ -38,6 +39,8 @@ function returnNumber (string) {
       newNumberString += number;
     }
   }
+
+  newNumberString = parseInt(newNumberString, 10);
   // eslint-disable-next-line no-undef
   return newNumberString;
 }
