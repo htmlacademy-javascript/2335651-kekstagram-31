@@ -1,38 +1,31 @@
 //Функция для проверки длины строки.
 // eslint-disable-next-line no-unused-vars
-function stringLength (string, maxLength) {
-  if (string.length <= maxLength) {
-    return true;
-  }
+function checkLength (string, maxLength) {
 
-  return false;
+  return string.length <= maxLength;
 }
 
 //Функция для проверки, является ли строка палиндромом
 // eslint-disable-next-line no-unused-vars
-function stringPalindrome (string) {
-  string = string.replaceAll(' ', '').toLowerCase();
+function checkPalindrome (string) {
+  const convertedString = string.replaceAll(' ', '').toLowerCase();
   let newString = '';
 
-  for (let i = string.length - 1; i >= 0; i--){
+  for (let i = convertedString.length - 1; i >= 0; i--){
     // eslint-disable-next-line no-unused-vars
-    newString += string[i];
+    newString += convertedString[i];
   }
 
-  if (newString === string) {
-    return true;
-  }
-
-  return false;
+  return newString === convertedString;
 }
 
-//Функция возарата числа
+//Функция возарата числа из строки
 // eslint-disable-next-line no-unused-vars
-function returnNumber (string) {
+function parseString (string) {
   let newNumberString = '';
-  string = string.toString();
-  for (let i = 0; i <= string.length; i++) {
-    const number = parseInt(string[i], 10);
+  const convertedString = string.toString();
+  for (let i = 0; i <= convertedString.length; i++) {
+    const number = parseInt(convertedString[i], 10);
 
     if (!isNaN(number)) {
       // eslint-disable-next-line no-unused-vars
