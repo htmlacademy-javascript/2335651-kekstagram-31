@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+
 const DESCRIPTION = [
   'Hello world',
   'Have a good weekend',
@@ -14,7 +16,6 @@ const MESSAGE = [
   'Лица у людей на фотке перекошены, как будто их избивают. Как можно было поймать такой неудачный момент?!'
 ];
 
-// eslint-disable-next-line no-unused-vars
 const NAMES = [
   'Пётр Панов',
   'Мадина Большакова',
@@ -43,23 +44,20 @@ const getRandomArrayElement = (elements) => elements[getRandomInteger(0, element
 let photoId = 1;
 let photoUrl = 1;
 let commentsId = 0;
-// eslint-disable-next-line no-unused-vars
+
 const descriptionPhotos = () => ({
   id: photoId++,
-  // eslint-disable-next-line prefer-template
-  url: 'photos/' + photoUrl++ + '.jpg',
+  url: `photos/${ photoUrl++ }.jpg`,
   description: getRandomArrayElement(DESCRIPTION),
   likes: getRandomNumberLikes(),
   comments: [{
     message: getRandomArrayElement(MESSAGE),
     name: getRandomArrayElement(NAMES),
     id: commentsId++,
-    // eslint-disable-next-line prefer-template
-    avatar: 'img/avatar-' + getRandomNumberavatars() + '.svg',
+    avatar: `img/avatar-${ getRandomNumberavatars() }.svg`,
   }]
 });
 
 const comments = Array.from({length: 25}, descriptionPhotos);
 
-// eslint-disable-next-line no-console
 console.log(comments);
