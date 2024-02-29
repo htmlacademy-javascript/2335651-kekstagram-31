@@ -1,15 +1,15 @@
 
 const convertsHoursToMinutes = (time) => {
-  const ARR_TIME = time.split(':');
-  return (parseInt(ARR_TIME[0], 10) * 60) + parseInt(ARR_TIME[1], 10);
+  const arrTime = time.split(':');
+  return (parseInt(arrTime[0], 10) * 60) + parseInt(arrTime[1], 10);
 };
 
-const checkMeetingdDuration = function (startWork, endWork, startMeeting, timeMeeting) {
-  const START_WORK_MINUTES = convertsHoursToMinutes(startWork);
-  const END_WORK_MINUTES = convertsHoursToMinutes(endWork);
-  const END_MEETING_MINUTS = convertsHoursToMinutes(startMeeting) + timeMeeting;
+const checkMeetingdDuration = (startWork, endWork, startMeeting, timeMeeting) => {
+  const startWorkMinutes = convertsHoursToMinutes(startWork);
+  const endWorkMinutes = convertsHoursToMinutes(endWork);
+  const endMeetingMinuts = convertsHoursToMinutes(startMeeting) + timeMeeting;
 
-  return END_MEETING_MINUTS <= END_WORK_MINUTES && convertsHoursToMinutes(startMeeting) >= START_WORK_MINUTES;
+  return endMeetingMinuts <= endWorkMinutes && convertsHoursToMinutes(startMeeting) >= startWorkMinutes;
 };
 
 checkMeetingdDuration();
