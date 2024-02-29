@@ -1,39 +1,15 @@
-//Функция для проверки длины строки.
-// eslint-disable-next-line no-unused-vars
-function checkLength (string, maxLength) {
 
-  return string.length <= maxLength;
-}
+const convertsHoursToMinutes = (time) => {
+  const arrTime = time.split(':');
+  return (parseInt(arrTime[0], 10) * 60) + parseInt(arrTime[1], 10);
+};
 
-//Функция для проверки, является ли строка палиндромом
-// eslint-disable-next-line no-unused-vars
-function checkPalindrome (string) {
-  const convertedString = string.replaceAll(' ', '').toLowerCase();
-  let newString = '';
+const checkMeetingdDuration = (startWork, endWork, startMeeting, timeMeeting) => {
+  const startWorkMinutes = convertsHoursToMinutes(startWork);
+  const endWorkMinutes = convertsHoursToMinutes(endWork);
+  const endMeetingMinuts = convertsHoursToMinutes(startMeeting) + timeMeeting;
 
-  for (let i = convertedString.length - 1; i >= 0; i--){
-    // eslint-disable-next-line no-unused-vars
-    newString += convertedString[i];
-  }
+  return endMeetingMinuts <= endWorkMinutes && convertsHoursToMinutes(startMeeting) >= startWorkMinutes;
+};
 
-  return newString === convertedString;
-}
-
-//Функция возарата числа из строки
-// eslint-disable-next-line no-unused-vars
-function parseString (string) {
-  let newNumberString = '';
-  const convertedString = string.toString();
-  for (let i = 0; i <= convertedString.length; i++) {
-    const number = parseInt(convertedString[i], 10);
-
-    if (!isNaN(number)) {
-      // eslint-disable-next-line no-unused-vars
-      newNumberString += number;
-    }
-  }
-
-  newNumberString = parseInt(newNumberString, 10);
-  // eslint-disable-next-line no-undef
-  return newNumberString;
-}
+checkMeetingdDuration();
