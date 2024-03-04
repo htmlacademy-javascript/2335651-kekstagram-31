@@ -1,6 +1,4 @@
-import {generatesDescriptions} from './mock-data.js';
+import './mock-data.js';
+import './сreation-picture.js';
 
-// eslint-disable-next-line no-console
-console.log(
-  generatesDescriptions()
-);
+
