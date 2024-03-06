@@ -1,4 +1,5 @@
 import './mock-data.js';
-import './сreation-picture.js';
+import {сreationPicture} from './сreation-picture.js';
 
+сreationPicture();
 
