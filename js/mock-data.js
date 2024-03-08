@@ -29,23 +29,34 @@ const NAMES = [
   'София Борисова'
 ];
 
-let photoId = 1;
-let photoUrl = 1;
-let commentsId = 0;
+function createNumber() {
+  let number = 0;
+
+  function increaseNumber() {
+    number++;
+    return number;
+  }
+  return increaseNumber;
+}
+
+const photoId = createNumber();
+const photoUrl = createNumber();
+const commentsId = createNumber();
+
 
 const descriptionPhotos = () => ({
-  id: photoId++,
-  url: `photos/${ photoUrl++ }.jpg`,
+  id: photoId(),
+  url: `photos/${ photoUrl() }.jpg`,
   description: getRandomArrayElement(DESCRIPTION),
   likes: getRandomNumberLikes(),
   comments: [{
     message: getRandomArrayElement(MESSAGE),
     name: getRandomArrayElement(NAMES),
-    id: commentsId++,
+    id: commentsId(),
     avatar: `img/avatar-${ getRandomNumberavatars() }.svg`,
   }]
 });
 
 const generatesDescriptions = () => Array.from({length: 25}, descriptionPhotos);
 
-export {generatesDescriptions};
+export {generatesDescriptions, descriptionPhotos, createNumber};
