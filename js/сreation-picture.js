@@ -4,10 +4,10 @@ const pictureList = document.querySelector('.pictures');
 const pictureTemplate = document.querySelector('#picture').content.querySelector('.picture');
 
 const сreationPicture = () => {
-  const similarPicture = generatesDescriptions();
+  const generatesPicture = generatesDescriptions();
   const pictureListFragment = document.createDocumentFragment();
 
-  similarPicture.forEach(({url, description, likes, comments}) => {
+  generatesPicture.forEach(({url, description, likes, comments}) => {
     const pictureElement = pictureTemplate.cloneNode(true);
     const pictureImg = pictureElement.querySelector('.picture__img');
     pictureImg.src = url;

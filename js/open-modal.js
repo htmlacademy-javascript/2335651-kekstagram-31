@@ -34,3 +34,4 @@ bigPictureCancel.addEventListener('click', () => {
   closeBigPicture();
 });
 
+export{onBigPictureEscKeydown};
