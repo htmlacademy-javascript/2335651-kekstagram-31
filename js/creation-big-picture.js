@@ -1,6 +1,5 @@
 import {descriptionPhotos} from './mock-data.js';
 import {creationComments} from './creation-comments.js';
-import {onBigPictureEscKeydown} from './open-modal.js';
 
 const bigPictureImg = document.querySelector('.big-picture__img img');
 const miniPicture = document.querySelector('.pictures');
