@@ -1,9 +1,12 @@
 import './mock-data.js';
 import {сreationPicture} from './сreation-picture.js';
 import './open-modal.js';
-import {creationBigPicture} from './creation-big-picture.js';
+import {createBigPicture} from './creation-big-picture.js';
 import {commentsLoader} from './comments-loader.js';
+import {generatesDescriptions} from './mock-data.js';
 
-сreationPicture();
-creationBigPicture();
+const picturesData = generatesDescriptions();
+
+сreationPicture(picturesData);
+createBigPicture(picturesData);
 commentsLoader();
