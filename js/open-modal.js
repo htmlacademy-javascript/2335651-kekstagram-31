@@ -33,5 +33,3 @@ miniPicture.addEventListener('click', () => {
 bigPictureCancel.addEventListener('click', () => {
   closeBigPicture();
 });
-
-export{onBigPictureEscKeydown};

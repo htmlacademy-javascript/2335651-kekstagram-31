@@ -6,6 +6,7 @@ const commentsList = document.querySelector('.social__comments');
 const commentItem = commentsList.querySelector('li');
 const commentAvatar = commentsList.querySelector('img');
 const commentText = commentsList.querySelector('p');
+const bigPictureCancel = document.querySelector('.big-picture__cancel');
 commentsList.innerHTML = '';
 
 const creationComments = () => {
@@ -24,6 +25,10 @@ const creationComments = () => {
 
   commentTotalCount.textContent = commentsList.childNodes.length;
   commentShownCount.textContent = commentsList.childNodes.length;
+
+  bigPictureCancel.addEventListener('click', () => {
+    commentsList.innerHTML = '';
+  });
 };
 
 export{creationComments};
