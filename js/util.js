@@ -5,11 +5,11 @@ const getRandomInteger = (a, b) => {
   return Math.floor(result);
 };
 
-
-const getRandomNumberavatars = () => getRandomInteger(1, 6);
+const getRandomNumberCommentsCount = () => getRandomInteger(6, 13);
+const getRandomNumberAvatars = () => getRandomInteger(1, 6);
 const getRandomNumberLikes = () => getRandomInteger(15, 200);
 const getRandomArrayElement = (elements) => elements[getRandomInteger(0, elements.length - 1)];
 
 const isEscapeKey = (evt) => evt.key === 'Escape';
 
-export {getRandomNumberavatars, getRandomNumberLikes, getRandomArrayElement, isEscapeKey};
+export {getRandomNumberAvatars, getRandomNumberLikes, getRandomArrayElement, getRandomNumberCommentsCount, isEscapeKey};

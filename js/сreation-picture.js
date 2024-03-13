@@ -1,3 +1,4 @@
+import {getRandomNumberCommentsCount} from './util.js';
 
 const pictureList = document.querySelector('.pictures');
 const pictureTemplate = document.querySelector('#picture').content.querySelector('.picture');
@@ -13,7 +14,9 @@ const сreationPicture = (generatesPictureData) => {
     pictureElement.setAttribute('data-id', id);
     pictureImg.alt = description;
     pictureElement.querySelector('.picture__likes').textContent = likes;
+    comments.length = getRandomNumberCommentsCount();
     pictureElement.querySelector('.picture__comments').textContent = comments.length;
+
     pictureListFragment.append(pictureElement);
   });
 

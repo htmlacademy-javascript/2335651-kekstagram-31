@@ -1,12 +1,12 @@
 import {descriptionPhotos} from './mock-data.js';
 
 const commentShownCount = document.querySelector('.social__comment-shown-count');
-const commentTotalCount = document.querySelector('.social__comment-total-count');
 const commentsList = document.querySelector('.social__comments');
 const commentItem = commentsList.querySelector('li');
 const commentAvatar = commentsList.querySelector('img');
 const commentText = commentsList.querySelector('p');
 const bigPictureCancel = document.querySelector('.big-picture__cancel');
+const buttonLoaderComments = document.querySelector('.social__comments-loader');
 commentsList.innerHTML = '';
 
 const creationComments = () => {
@@ -23,11 +23,12 @@ const creationComments = () => {
     commentText.textContent = obj.message;
   }
 
-  commentTotalCount.textContent = commentsList.childNodes.length;
+
   commentShownCount.textContent = commentsList.childNodes.length;
 
   bigPictureCancel.addEventListener('click', () => {
     commentsList.innerHTML = '';
+    buttonLoaderComments.classList.remove('hidden');
   });
 };
 

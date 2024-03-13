@@ -1,4 +1,4 @@
-import {getRandomNumberavatars, getRandomNumberLikes, getRandomArrayElement} from './util.js';
+import {getRandomNumberAvatars, getRandomNumberLikes, getRandomArrayElement} from './util.js';
 
 const DESCRIPTION = [
   'Hello world',
@@ -53,7 +53,7 @@ const descriptionPhotos = () => ({
     message: getRandomArrayElement(MESSAGE),
     name: getRandomArrayElement(NAMES),
     id: commentsId(),
-    avatar: `img/avatar-${ getRandomNumberavatars() }.svg`,
+    avatar: `img/avatar-${ getRandomNumberAvatars() }.svg`,
   }]
 });
 
