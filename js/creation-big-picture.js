@@ -1,5 +1,5 @@
 
-import {creationComments} from './creation-comments.js';
+import {createComments} from './creation-comments.js';
 
 const bigPictureImg = document.querySelector('.big-picture__img img');
 const miniPictures = document.querySelector('.pictures');
@@ -18,7 +18,7 @@ const createBigPicture = (arr) => {
     socialCaption.textContent = pictureDescription.description;
     commentTotalCount.textContent = pictureDescription.comments.length;
 
-    creationComments();
+    Array.from({length: 5}, createComments);
   });
 };
 

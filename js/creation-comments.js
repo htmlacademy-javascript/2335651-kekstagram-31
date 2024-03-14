@@ -9,11 +9,11 @@ const bigPictureCancel = document.querySelector('.big-picture__cancel');
 const buttonLoaderComments = document.querySelector('.social__comments-loader');
 commentsList.innerHTML = '';
 
-const creationComments = () => {
+const createComments = () => {
   const generatesCommentsData = descriptionPhotos().comments;
-  const pictureComment = commentItem.cloneNode(true);
+  const commentItemClone = commentItem.cloneNode(true);
 
-  commentsList.append(pictureComment);
+  commentsList.append(commentItemClone);
   commentItem.append(commentAvatar);
   commentItem.append(commentText);
 
@@ -32,4 +32,4 @@ const creationComments = () => {
   });
 };
 
-export{creationComments};
+export{createComments};

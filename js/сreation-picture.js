@@ -3,7 +3,7 @@ import {getRandomNumberCommentsCount} from './util.js';
 const pictureList = document.querySelector('.pictures');
 const pictureTemplate = document.querySelector('#picture').content.querySelector('.picture');
 
-const сreationPicture = (generatesPictureData) => {
+const сreatePicture = (generatesPictureData) => {
   const pictureListFragment = document.createDocumentFragment();
 
   generatesPictureData.forEach(({url, description, likes, comments, id}) => {
@@ -23,4 +23,4 @@ const сreationPicture = (generatesPictureData) => {
   pictureList.append(pictureListFragment);
 };
 
-export{сreationPicture};
+export{сreatePicture};
