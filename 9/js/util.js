@@ -5,7 +5,7 @@ const getRandomInteger = (a, b) => {
   return Math.floor(result);
 };
 
-const getRandomNumberCommentsCount = () => getRandomInteger(6, 50);
+const getRandomNumberCommentsCount = () => getRandomInteger(0, 20);
 const getRandomNumberAvatars = () => getRandomInteger(1, 6);
 const getRandomNumberLikes = () => getRandomInteger(15, 200);
 const getRandomArrayElement = (elements) => elements[getRandomInteger(0, elements.length - 1)];

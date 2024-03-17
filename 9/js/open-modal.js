@@ -1,9 +1,12 @@
 import {isEscapeKey} from './util.js';
+import {commentPartLoads} from './picture-comments.js';
 
 const miniPicture = document.querySelector('.pictures');
 const bigPicture = document.querySelector('.big-picture');
 const bigPictureCancel = document.querySelector('.big-picture__cancel');
 const body = document.querySelector('body');
+const buttonLoaderComments = document.querySelector('.social__comments-loader');
+const commentsList = document.querySelector('.social__comments');
 
 const onBigPictureEscKeydown = (evt) => {
   if(isEscapeKey(evt)) {
@@ -22,6 +25,9 @@ function openBigPicture () {
 function closeBigPicture () {
   bigPicture.classList.add('hidden');
   body.classList.remove('modal-open');
+  commentsList.innerHTML = '';
+  buttonLoaderComments.classList.remove('hidden');
+  buttonLoaderComments.removeEventListener ('click', commentPartLoads);
 
   document.removeEventListener('keydown', onBigPictureEscKeydown);
 }
