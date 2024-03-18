@@ -6,7 +6,7 @@ const commentPicture = commentTemplate.querySelector('.social__picture');
 const commentText = commentTemplate.querySelector('.social__text');
 const commentShownCount = document.querySelector('.social__comment-shown-count');
 
-const addsСommentsList = (arr, id) => {
+const addСommentsList = (arr, id) => {
   const commentDescription = arr.find((element) => element.id === parseInt(id, 10));
   commentsList.innerHTML = '';
 
@@ -21,7 +21,7 @@ const addsСommentsList = (arr, id) => {
   });
 };
 
-const commentPartLoads = () => {
+const loadCommentsPartly = () => {
   const hiddenCommentsList = commentsList.getElementsByClassName('hidden');
 
   let commentsCount = 5;
@@ -37,9 +37,9 @@ const commentPartLoads = () => {
   commentShownCount.textContent = commentsList.children.length - commentsList.getElementsByClassName('hidden').length;
 };
 
-const commentsLoads = () => {
-  commentPartLoads();
-  buttonLoaderComments.addEventListener ('click', commentPartLoads);
+const loadComments = () => {
+  loadCommentsPartly();
+  buttonLoaderComments.addEventListener ('click', loadCommentsPartly);
 };
 
-export{commentsLoads, addsСommentsList, commentPartLoads};
+export{loadComments, addСommentsList, loadCommentsPartly};

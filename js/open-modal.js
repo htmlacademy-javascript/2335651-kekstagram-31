@@ -1,5 +1,5 @@
 import {isEscapeKey} from './util.js';
-import {commentPartLoads} from './picture-comments.js';
+import {loadCommentsPartly} from './picture-comments.js';
 
 const miniPicture = document.querySelector('.pictures');
 const bigPicture = document.querySelector('.big-picture');
@@ -27,7 +27,7 @@ function closeBigPicture () {
   body.classList.remove('modal-open');
   commentsList.innerHTML = '';
   buttonLoaderComments.classList.remove('hidden');
-  buttonLoaderComments.removeEventListener ('click', commentPartLoads);
+  buttonLoaderComments.removeEventListener ('click', loadCommentsPartly);
 
   document.removeEventListener('keydown', onBigPictureEscKeydown);
 }

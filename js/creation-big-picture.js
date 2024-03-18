@@ -1,4 +1,4 @@
-import {commentsLoads, addsСommentsList} from './picture-comments.js';
+import {loadComments, addСommentsList} from './picture-comments.js';
 
 const bigPictureImg = document.querySelector('.big-picture__img img');
 const miniPictures = document.querySelector('.pictures');
@@ -18,12 +18,12 @@ const createBigPicture = (arr) => {
     bigPictureImg.src = pictureDescription.url;
     socialCaption.textContent = pictureDescription.description;
     commentTotalCount.textContent = pictureDescription.comments.length;
-    addsСommentsList(arr, imageId);
+    addСommentsList(arr, imageId);
 
     for (let i = 0; i < Array.from(commentsList.childNodes).length; i++) {
       commentsList.childNodes[i].classList.add('hidden');
     }
-    commentsLoads();
+    loadComments();
   });
 };
 
