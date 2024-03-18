@@ -1,4 +1,4 @@
-import {getRandomNumberavatars, getRandomNumberLikes, getRandomArrayElement} from './util.js';
+import {getRandomNumberAvatars, getRandomNumberLikes, getRandomArrayElement, getRandomNumberCommentsCount} from './util.js';
 
 const DESCRIPTION = [
   'Hello world',
@@ -43,19 +43,21 @@ const photoId = createNumber();
 const photoUrl = createNumber();
 const commentsId = createNumber();
 
+const descriptionComents = () => ({
+  message: getRandomArrayElement(MESSAGE),
+  name: getRandomArrayElement(NAMES),
+  id: commentsId(),
+  avatar: `img/avatar-${ getRandomNumberAvatars() }.svg`
+});
 
 const descriptionPhotos = () => ({
   id: photoId(),
   url: `photos/${ photoUrl() }.jpg`,
   description: getRandomArrayElement(DESCRIPTION),
   likes: getRandomNumberLikes(),
-  comments: [{
-    message: getRandomArrayElement(MESSAGE),
-    name: getRandomArrayElement(NAMES),
-    id: commentsId(),
-    avatar: `img/avatar-${ getRandomNumberavatars() }.svg`,
-  }]
+  comments: Array.from({length: getRandomNumberCommentsCount()}, descriptionComents)
 });
+
 
 const generatesDescriptions = () => Array.from({length: 25}, descriptionPhotos);
 
