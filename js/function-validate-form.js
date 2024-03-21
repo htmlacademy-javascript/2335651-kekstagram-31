@@ -12,7 +12,7 @@ const checkValidateHashtags = (value) => {
   return true;
 };
 
-const checkLengtHashtags = (value) => {
+const checkLengthHashtags = (value) => {
   const arrHashtags = value.split(' ');
 
   if (arrHashtags.length > 5) {
@@ -24,14 +24,20 @@ const checkLengtHashtags = (value) => {
 const checkRepeatHashtags = (value) => {
   const arrHashtags = value.split(' ');
 
-  for (let i = 0; i < arrHashtags.length; i++) {
-    if (arrHashtags[i + 1] === arrHashtags[i]) {
-      return false;
+  for (let i = 0; i < arrHashtags.length - 1; i++) {
+    const currentHashtag = arrHashtags[i];
+
+    for (let j = i + 1; j < arrHashtags.length; j++) {
+      currentHashtag.localeCompare(arrHashtags[j]);
+
+      if (currentHashtag.localeCompare(arrHashtags[j]) === 0) {
+        return false;
+      }
     }
   }
   return true;
 };
 
-const validateComments = (value) => value.length <= 140;
+const checkLengthComment = (value) => value.length <= 140;
 
-export{validateComments, checkValidateHashtags, checkLengtHashtags, checkRepeatHashtags};
+export{checkLengthComment, checkValidateHashtags, checkLengthHashtags, checkRepeatHashtags};

@@ -1,4 +1,4 @@
-import {validateComments, checkValidateHashtags, checkLengtHashtags, checkRepeatHashtags} from './function-validate-form.js';
+import {checkLengthComment, checkValidateHashtags, checkLengthHashtags, checkRepeatHashtags} from './function-validate-form.js';
 
 const imgEditorForm = document.querySelector('.img-upload__form');
 const uploadImg = document.querySelector('.img-upload__input');
@@ -26,7 +26,7 @@ uploadImg.addEventListener('change', (evt) => {
 
 pristine.addValidator(
   textComment,
-  validateComments,
+  checkLengthComment,
   'Длина комментария больше 140 символов'
 );
 
@@ -38,7 +38,7 @@ pristine.addValidator(
 
 pristine.addValidator(
   textHashtags,
-  checkLengtHashtags,
+  checkLengthHashtags,
   'Превышено количество хэштегов'
 );
 
