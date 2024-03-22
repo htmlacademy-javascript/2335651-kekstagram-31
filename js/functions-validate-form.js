@@ -18,7 +18,7 @@ const checkHashtags = (value) => {
   return true;
 };
 
-const checkLengthHashtags = (value) => value.split(' ').length < MAX_HASHTAGS_COUNT;
+const checkLengthHashtags = (value) => value.split(' ').length <= MAX_HASHTAGS_COUNT;
 
 const checkRepeatHashtags = (value) => new Set(value.toLowerCase().split(' ')).size === value.split(' ').length;
 
