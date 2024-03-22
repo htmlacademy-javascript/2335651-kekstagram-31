@@ -20,7 +20,7 @@ const checkHashtags = (value) => {
 
 const checkLengthHashtags = (value) => value.split(' ').length < MAX_HASHTAGS_COUNT;
 
-const checkRepeatHashtags = (value) => new Set(value.split(' ')).size === value.split(' ').length;
+const checkRepeatHashtags = (value) => new Set(value.toLowerCase().split(' ')).size === value.split(' ').length;
 
 const checkLengthComment = (value) => value.length <= MAX_LENGTH_COMMENT;
 
