@@ -1,4 +1,4 @@
-import {checkLengthComment, checkValidateHashtags, checkLengthHashtags, checkRepeatHashtags} from './function-validate-form.js';
+import {checkLengthComment, checkHashtags, checkLengthHashtags, checkRepeatHashtags} from './functions-validate-form.js';
 
 const imgEditorForm = document.querySelector('.img-upload__form');
 const uploadImg = document.querySelector('.img-upload__input');
@@ -32,7 +32,7 @@ pristine.addValidator(
 
 pristine.addValidator(
   textHashtags,
-  checkValidateHashtags,
+  checkHashtags,
   'Введён невалидный хэштег'
 );
 
