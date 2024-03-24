@@ -1,4 +1,6 @@
 import {checkLengthComment, checkHashtags, checkLengthHashtags, checkRepeatHashtags} from './functions-validate-form.js';
+import {onEffectChengePicture} from './slider.js';
+import {changeScale} from './scale-control.js';
 
 const imgEditorForm = document.querySelector('.img-upload__form');
 const uploadImg = document.querySelector('.img-upload__input');
@@ -6,6 +8,7 @@ const editorImg = document.querySelector('.img-upload__overlay');
 const body = document.querySelector('body');
 const textComment = imgEditorForm.querySelector('.text__description');
 const textHashtags = imgEditorForm.querySelector('.text__hashtags');
+const effectsList = document.querySelector('.effects__list');
 
 const pristine = new Pristine(imgEditorForm, {
   classTo: 'img-upload__field-wrapper',
@@ -53,6 +56,9 @@ imgEditorForm.addEventListener('submit', (evt) => {
   pristine.validate();
 });
 
+changeScale();
+
+effectsList.addEventListener('change', onEffectChengePicture);
 
 textComment.addEventListener('keydown', (evt) => evt.stopPropagation());
 textHashtags.addEventListener('keydown', (evt) => evt.stopPropagation());
