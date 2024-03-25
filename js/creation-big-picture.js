@@ -1,7 +1,6 @@
 import {loadComments, addСommentsList} from './picture-comments.js';
 
 const bigPictureImg = document.querySelector('.big-picture__img img');
-const bigPicture = document.querySelector('.big-picture');
 const miniPictures = document.querySelector('.pictures');
 const bigPictureLikes = document.querySelector('.likes-count');
 const socialCaption = document.querySelector('.social__caption');
@@ -14,11 +13,6 @@ const createBigPicture = (arr) => {
     const dataPictureImg = evt.target;
     const imageId = dataPictureImg.getAttribute('data-id');
     const pictureDescription = arr.find((element) => element.id === parseInt(imageId, 10));
-
-    if(!pictureDescription) {
-      bigPicture.classList.add('hidden');
-      return;
-    }
 
     bigPictureLikes.textContent = pictureDescription.likes;
     bigPictureImg.src = pictureDescription.url;
