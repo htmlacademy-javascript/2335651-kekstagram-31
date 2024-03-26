@@ -1,3 +1,4 @@
+
 const HASHTAG_PATTERN = /^#[a-zа-яё0-9]{1,19}$/i;
 const MAX_HASHTAGS_COUNT = 5;
 const MAX_LENGTH_COMMENT = 140;
@@ -15,6 +16,7 @@ const checkHashtags = (value) => {
       return false;
     }
   }
+
   return true;
 };
 

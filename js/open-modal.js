@@ -7,9 +7,6 @@ const bigPictureCancel = document.querySelector('.big-picture__cancel');
 const body = document.querySelector('body');
 const buttonLoaderComments = document.querySelector('.social__comments-loader');
 const commentsList = document.querySelector('.social__comments');
-const imgUploadCancell = document.querySelector('.img-upload__cancel');
-const imgUploadOverlay = document.querySelector('.img-upload__overlay');
-const imgUploadInput = document.querySelector('.img-upload__input');
 
 const onBigPictureEscKeydown = (evt) => {
   if(isEscapeKey(evt)) {
@@ -27,7 +24,6 @@ function openBigPicture () {
 
 function closeBigPicture () {
   bigPicture.classList.add('hidden');
-  imgUploadOverlay.classList.add('hidden');
   body.classList.remove('modal-open');
   commentsList.innerHTML = '';
   buttonLoaderComments.classList.remove('hidden');
@@ -36,17 +32,12 @@ function closeBigPicture () {
   document.removeEventListener('keydown', onBigPictureEscKeydown);
 }
 
-miniPicture.addEventListener('click', () => {
-  openBigPicture();
+miniPicture.addEventListener('click', (evt) => {
+  if (evt.target.className === 'picture__img') {
+    openBigPicture();
+  }
 });
 
-bigPictureCancel.addEventListener('click', () => {
-  closeBigPicture();
-});
+bigPictureCancel.addEventListener('click', closeBigPicture);
 
-imgUploadCancell.addEventListener('click', () => {
-  closeBigPicture();
-  imgUploadInput.value = '';
-});
-
-export{closeBigPicture};
+export{closeBigPicture, onBigPictureEscKeydown};
