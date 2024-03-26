@@ -17,18 +17,21 @@ const sliderElement = document.querySelector('.effect-level__slider');
 const containerSliderElement = document.querySelector('.img-upload__effect-level');
 const imgEditorForm = document.querySelector('.img-upload__form');
 
-const onBigPictureEscKeydown = (evt) => {
-  if(isEscapeKey(evt)) {
-    evt.preventDefault();
-    closeBigPicture();
-  }
+
+const onEscKeydown = (close) => {
+  document.addEventListener('keydown', (evt) => {
+    if (isEscapeKey(evt)) {
+      evt.preventDefault();
+      close();
+    }
+  });
 };
 
 function openBigPicture () {
   bigPicture.classList.remove('hidden');
   body.classList.add('modal-open');
 
-  document.addEventListener('keydown', onBigPictureEscKeydown);
+  document.addEventListener('keydown', onEscKeydown(closeBigPicture));
 }
 
 function closeBigPicture () {
@@ -38,7 +41,7 @@ function closeBigPicture () {
   buttonLoaderComments.classList.remove('hidden');
   buttonLoaderComments.removeEventListener ('click', loadCommentsPartly);
 
-  document.removeEventListener('keydown', onBigPictureEscKeydown);
+  document.removeEventListener('keydown', onEscKeydown(closeBigPicture));
 }
 
 miniPictureOpenElement.addEventListener('click', (evt) => {
@@ -55,20 +58,15 @@ miniPictureOpenElement.addEventListener('keydown', (evt) => {
 
 bigPictureCancelElement.addEventListener('click', closeBigPicture);
 
-bigPictureCancelElement.addEventListener('keydown', (evt) => {
-  if (isEscapeKey(evt)) {
-    closeBigPicture();
-  }
-});
-
 uploadImg.addEventListener('change', (evt) => {
   if (evt.target.value) {
     editorImg.classList.remove('hidden');
     body.classList.add('modal-open');
 
-    document.addEventListener('keydown', onBigPictureEscKeydown);
+    document.addEventListener('keydown', onEscKeydown(closeForm));
   }
 });
+
 
 function closeForm () {
   imgUploadOverlay.classList.add('hidden');
@@ -79,16 +77,11 @@ function closeForm () {
   sliderElement.classList.add('hidden');
   containerSliderElement.classList.add('hidden');
 
-  document.removeEventListener('keydown', onBigPictureEscKeydown);
+  document.removeEventListener('keydown', onEscKeydown(closeForm));
 }
 
 imgUploadCancell.addEventListener('click', () => {
   closeForm();
 });
 
-imgUploadCancell.addEventListener('keydown', (evt) => {
-  if (isEscapeKey(evt)) {
-    closeForm();
-  }
-});
-
+export{onEscKeydown, closeForm};

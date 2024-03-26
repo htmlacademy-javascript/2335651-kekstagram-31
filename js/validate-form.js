@@ -1,11 +1,13 @@
 import {checkLengthComment, checkHashtags, checkLengthHashtags, checkRepeatHashtags} from './functions-validate-form.js';
 import {onEffectChengePicture} from './slider.js';
 import {addScaling} from './scale-control.js';
+import {sendData} from './api.js';
 
 const imgEditorForm = document.querySelector('.img-upload__form');
 const textComment = imgEditorForm.querySelector('.text__description');
 const textHashtags = imgEditorForm.querySelector('.text__hashtags');
 const effectsList = document.querySelector('.effects__list');
+const submitButtonForm = document.querySelector('.img-upload__submit');
 
 const pristine = new Pristine(imgEditorForm, {
   classTo: 'img-upload__field-wrapper',
@@ -40,10 +42,34 @@ pristine.addValidator(
   'Хэштеги повторяются'
 );
 
-imgEditorForm.addEventListener('submit', (evt) => {
-  evt.preventDefault();
-  pristine.validate();
-});
+const blockSubmitButton = () => {
+  submitButtonForm.disabled = true;
+};
+
+const unblockSubmitButton = () => {
+  submitButtonForm.disabled = false;
+};
+
+const setUserFormSubmit = (onSuccess) => {
+  imgEditorForm.addEventListener('submit', (evt) => {
+    evt.preventDefault();
+    const isValid = pristine.validate();
+    if(isValid){
+      const formData = new FormData(evt.target);
+      blockSubmitButton();
+      sendData(
+        () => {
+          onSuccess();
+          unblockSubmitButton();
+        },
+        () => {
+          unblockSubmitButton();
+        },
+        formData,
+      );
+    }
+  });
+};
 
 addScaling();
 
@@ -52,4 +78,4 @@ effectsList.addEventListener('change', onEffectChengePicture);
 textComment.addEventListener('keydown', (evt) => evt.stopPropagation());
 textHashtags.addEventListener('keydown', (evt) => evt.stopPropagation());
 
-
+export{setUserFormSubmit};

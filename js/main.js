@@ -1,11 +1,13 @@
-import './mock-data.js';
 import {сreatePicture} from './сreation-picture.js';
-import './open-modal.js';
 import {createBigPicture} from './creation-big-picture.js';
-import {generatesDescriptions} from './mock-data.js';
+import './open-modal.js';
+import {closeForm} from './open-modal.js';
 import './validate-form.js';
+import {getData} from './api.js';
+import {setUserFormSubmit} from './validate-form.js';
 
-const picturesData = generatesDescriptions();
-
-сreatePicture(picturesData);
-createBigPicture(picturesData);
+setUserFormSubmit(closeForm);
+getData((data) => {
+  сreatePicture(data);
+  createBigPicture(data);
+});
