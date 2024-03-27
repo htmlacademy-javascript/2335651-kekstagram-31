@@ -1,3 +1,6 @@
+const errorMessage = document.querySelector('#data-error').content.querySelector('.data-error');
+const ALERT_SHOW_TIME = 5000;
+
 const getRandomInteger = (a, b) => {
   const lower = Math.ceil(Math.min(a, b));
   const upper = Math.floor(Math.max(a, b));
@@ -14,4 +17,13 @@ const isEscapeKey = (evt) => evt.key === 'Escape';
 
 const isEnterKey = (evt) => evt.key === 'Enter';
 
-export {getRandomNumberAvatars, getRandomNumberLikes, getRandomArrayElement, getRandomNumberCommentsCount, isEscapeKey, isEnterKey};
+const showAlert = () => {
+  document.body.append(errorMessage);
+
+  setTimeout(() => {
+    errorMessage.remove();
+  }, ALERT_SHOW_TIME);
+};
+
+
+export {getRandomNumberAvatars, getRandomNumberLikes, getRandomArrayElement, getRandomNumberCommentsCount, isEscapeKey, isEnterKey, showAlert};

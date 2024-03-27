@@ -1,4 +1,4 @@
-import {loadComments, addСommentsList} from './picture-comments.js';
+import {onCommentsLoad, addСommentsList} from './picture-comments.js';
 
 const bigPictureImg = document.querySelector('.big-picture__img img');
 const miniPictures = document.querySelector('.pictures');
@@ -8,7 +8,7 @@ const socialCaption = document.querySelector('.social__caption');
 const commentTotalCount = document.querySelector('.social__comment-total-count');
 const commentsList = document.querySelector('.social__comments');
 
-const createBigPicture = (arr) => {
+const onBigPictureCreate = (arr) => {
   miniPictures.addEventListener('click', (evt) => {
     const dataPictureImg = evt.target;
     const imageId = dataPictureImg.getAttribute('data-id');
@@ -23,8 +23,8 @@ const createBigPicture = (arr) => {
     for (let i = 0; i < Array.from(commentsList.childNodes).length; i++) {
       commentsList.childNodes[i].classList.add('hidden');
     }
-    loadComments();
+    onCommentsLoad();
   });
 };
 
-export{createBigPicture};
+export{onBigPictureCreate};

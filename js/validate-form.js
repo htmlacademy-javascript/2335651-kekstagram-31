@@ -1,6 +1,7 @@
+import {closeForm} from './close-form.js';
 import {checkLengthComment, checkHashtags, checkLengthHashtags, checkRepeatHashtags} from './functions-validate-form.js';
 import {onEffectChengePicture} from './slider.js';
-import {addScaling} from './scale-control.js';
+import {onScalingAdd} from './scale-control.js';
 import {sendData} from './api.js';
 
 const imgEditorForm = document.querySelector('.img-upload__form');
@@ -71,11 +72,13 @@ const setUserFormSubmit = (onSuccess) => {
   });
 };
 
-addScaling();
+onScalingAdd();
 
 effectsList.addEventListener('change', onEffectChengePicture);
 
 textComment.addEventListener('keydown', (evt) => evt.stopPropagation());
 textHashtags.addEventListener('keydown', (evt) => evt.stopPropagation());
+
+setUserFormSubmit(closeForm);
 
 export{setUserFormSubmit};
