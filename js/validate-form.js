@@ -19,6 +19,7 @@ const pristine = new Pristine(imgEditorForm, {
   errorTextClass: 'img-upload__field-wrapper--error'
 });
 
+
 pristine.addValidator(
   textComment,
   checkLengthComment,
@@ -81,4 +82,4 @@ textHashtags.addEventListener('keydown', (evt) => evt.stopPropagation());
 
 setUserFormSubmit(closeForm);
 
-export{setUserFormSubmit};
+export{setUserFormSubmit, pristine};

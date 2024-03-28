@@ -1,4 +1,5 @@
 import {onEscKeydown} from './open-modal.js';
+import {pristine} from './validate-form.js';
 
 const uploadImg = document.querySelector('.img-upload__input');
 const editorImg = document.querySelector('.img-upload__overlay');
@@ -24,6 +25,7 @@ function closeForm () {
   imgUploadOverlay.classList.add('hidden');
   document.body.classList.remove('modal-open');
   imgEditorForm.reset();
+  pristine.reset();
   uploadPreview.style.filter = 'none';
   uploadPreviewImg.style.transform = 'none';
   sliderElement.classList.add('hidden');
@@ -32,8 +34,6 @@ function closeForm () {
   document.removeEventListener('keydown', onEscKeydown(closeForm));
 }
 
-imgUploadCancell.addEventListener('click', () => {
-  closeForm();
-});
+imgUploadCancell.addEventListener('click', closeForm);
 
 export{closeForm};

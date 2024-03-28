@@ -32,7 +32,6 @@ const getData = (onSuccess) => {
     .then((response) => response.json())
     .then((data) => {
       onSuccess(data);
-      onSuccess(data);
     })
     .catch(() => {
       showAlert();
