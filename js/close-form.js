@@ -14,7 +14,7 @@ const imgEditorForm = document.querySelector('.img-upload__form');
 uploadImg.addEventListener('change', (evt) => {
   if (evt.target.value) {
     editorImg.classList.remove('hidden');
-    document.classList.add('modal-open');
+    document.body.classList.add('modal-open');
 
     document.addEventListener('keydown', onEscKeydown(closeForm));
   }
