@@ -1,25 +1,28 @@
-import {isEscapeKey} from './util.js';
+import {isEscapeKey, isEnterKey} from './util.js';
 import {loadCommentsPartly} from './picture-comments.js';
 
-const miniPicture = document.querySelector('.pictures');
+const miniPictureOpenElement = document.querySelector('.pictures');
 const bigPicture = document.querySelector('.big-picture');
-const bigPictureCancel = document.querySelector('.big-picture__cancel');
+const bigPictureCancelElement = document.querySelector('.big-picture__cancel');
 const body = document.querySelector('body');
 const buttonLoaderComments = document.querySelector('.social__comments-loader');
 const commentsList = document.querySelector('.social__comments');
 
-const onBigPictureEscKeydown = (evt) => {
-  if(isEscapeKey(evt)) {
-    evt.preventDefault();
-    closeBigPicture();
-  }
+
+const onEscKeydown = (close) => {
+  document.addEventListener('keydown', (evt) => {
+    if (isEscapeKey(evt)) {
+      evt.preventDefault();
+      close();
+    }
+  });
 };
 
 function openBigPicture () {
   bigPicture.classList.remove('hidden');
   body.classList.add('modal-open');
 
-  document.addEventListener('keydown', onBigPictureEscKeydown);
+  document.addEventListener('keydown', onEscKeydown(closeBigPicture));
 }
 
 function closeBigPicture () {
@@ -29,15 +32,21 @@ function closeBigPicture () {
   buttonLoaderComments.classList.remove('hidden');
   buttonLoaderComments.removeEventListener ('click', loadCommentsPartly);
 
-  document.removeEventListener('keydown', onBigPictureEscKeydown);
+  document.removeEventListener('keydown', onEscKeydown(closeBigPicture));
 }
 
-miniPicture.addEventListener('click', (evt) => {
+miniPictureOpenElement.addEventListener('click', (evt) => {
   if (evt.target.className === 'picture__img') {
     openBigPicture();
   }
 });
 
-bigPictureCancel.addEventListener('click', closeBigPicture);
+miniPictureOpenElement.addEventListener('keydown', (evt) => {
+  if (isEnterKey(evt) && evt.target.className === 'picture') {
+    openBigPicture();
+  }
+});
 
-export{closeBigPicture, onBigPictureEscKeydown};
+bigPictureCancelElement.addEventListener('click', closeBigPicture);
+
+export{onEscKeydown};
